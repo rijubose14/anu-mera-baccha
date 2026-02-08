@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One more time...</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="bgm" src="bgm.mp3" muted></audio>
+  <div class="card">
+    <div class="avatar-wrap">
+      <img id="avatarImg4" src="Gif/4-1.gif" class="avatar" alt="avatar"
+           onerror="this.style.display='none';document.getElementById('svgFallback4').style.display='block'">
+      <div id="svgFallback4" style="display:none">
+        <svg class="avatar" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g4" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset="1" stop-color="#ffecec"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="url(#g4)" stroke="#f1c6c9" stroke-width="2"/>
+          <circle cx="44" cy="50" r="8" fill="#222"/>
+          <circle cx="76" cy="50" r="8" fill="#222"/>
+          <circle cx="44" cy="50" r="3" fill="#fff"/>
+          <circle cx="76" cy="50" r="3" fill="#fff"/>
+          <path d="M48 74 C60 84, 72 84, 84 74" stroke="#f48ca3" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1>One last time… please? <span class="emoji">🥺</span></h1>
+    <p class="subtitle">
+    Kitna code likh waogi? Dil se bol raha hoon 💫
+    </p>
+
+    <button id="yes4" class="btn btn-yes">Yes ❤️</button>
+    <button id="no4" class="btn btn-no">No 🙃</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

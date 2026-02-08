@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Anu ❤️</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- keep music consistent -->
+  <audio id="bgm"
+    src="bgm.mp3"
+    muted>
+  </audio>
+
+  <div class="card">
+    <h1 class="typewriter">
+      Dear Anu ❤️
+    </h1>
+
+    <p id="finalMsg" class="final-message">
+    Happy Valentine’s Day, <strong>Anu</strong> ❤️<br>
+
+    I made this because you matter to me more than you know.<br>
+  Thank you for choosing me, for understanding me,
+  and for being exactly who you are 💕
+  I’m really lucky to have you.<br>
+
+    Every smile of yours, every little moment,  
+    somehow makes my days brighter than before.  
+    And I just wanted you to know that…<br>
+
+    Choosing you feels easy.  
+    Choosing you feels right.  
+    And I’d choose you again, every single time 💕<br>
+
+    <em>I love you, Anu.</em> 🌹
+    </p>
+
+    <p class="letter-sign">
+      — Always yours Niladre
+    </p>
+    <div class="buttons" id="buttons">
+      <button id="yes" class="btn btn-yes" onclick="window.location.href='final.html'">Last One Please❤️..</button>
+    </div>
+  </div>
+
+  <!-- hearts & confetti (reuse existing effects) -->
+  <div id="heartLayer" aria-hidden="true"></div>
+  <canvas id="confettiCanvas"
+          style="position:fixed;left:0;top:0;pointer-events:none;z-index:9999;display:none">
+  </canvas>
+  
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof popHearts === 'function') popHearts(14);
+      if (typeof runConfetti === 'function') runConfetti();
+    });
+    // setTimeout(()=>{
+    //   window.location.href="final.html";
+    // },15000);
+
+  </script>
+</body>
+</html>

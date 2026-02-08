@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Do you love me?</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="bgm" src="bgm.mp3" muted></audio>
+  <div class="card">
+    <div class="avatar-wrap">
+     <img id="avatarImg" src="Gif/request.gif" class="avatar" alt="avatar"
+       onerror="this.style.display='none';document.getElementById('svgFallback').style.display='block'">
+      <div id="svgFallback" style="display:none">
+        <!-- fallback inline SVG avatar -->
+        <svg class="avatar" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset="1" stop-color="#ffecec"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="url(#g)" stroke="#f1c6c9" stroke-width="2"/>
+          <circle cx="44" cy="50" r="8" fill="#222"/>
+          <circle cx="76" cy="50" r="8" fill="#222"/>
+          <circle cx="44" cy="50" r="3" fill="#fff"/>
+          <circle cx="76" cy="50" r="3" fill="#fff"/>
+          <path d="M48 74 C60 84, 72 84, 84 74" stroke="#f48ca3" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M34 32 L24 20" stroke="#f1c6c9" stroke-width="4" stroke-linecap="round"/>
+          <path d="M86 32 L96 20" stroke="#f1c6c9" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="typewriter">
+    I made this just for you ❤️
+    </h1>
+    <p class="subtitle">
+      Just answer honestly… I’m listening 🥺
+    </p>
+    <div class="buttons" id="buttons">
+      <button id="yes" class="btn btn-yes">Yes… 💕</button>
+      <button id="no" class="btn btn-no">I’m not sure 🙈</button>
+    </div>
+  </div>
+
+  <!-- heart layer and confetti canvas -->
+  <div id="heartLayer" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" style="position:fixed;left:0;top:0;pointer-events:none;z-index:9999;display:none"></canvas>
+
+  <!-- Yes modal -->
+  <div id="yesModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content yes-modal-content">
+
+      <!-- Heart drawing panel -->
+      <div id="heartPanel" class="heart-panel hidden" aria-live="polite">
+        <canvas id="heartCanvas" width="300" height="300"></canvas>
+
+        <p class="drawing-text">
+          I’m drawing something<br>
+          that words can’t explain… 💖
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <!-- 🔊 Tap to Enable Music Popup -->
+  <div id="soundPopup">
+    <div class="sound-box">
+      <h2>🎶 A little music for us…</h2>
+      <p>Tap once… and let our story begin 💞</p>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Hearts 💞</title>
+
+    <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, Arial, sans-serif;
+
+      background: linear-gradient(
+        135deg,
+        #f8b4c6,
+        #fbc2d9,
+        #fde2e4
+      );
+      background-size: 300% 300%;
+      animation: bgShift 14s ease infinite;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .message-card {
+      background: rgba(255,255,255,0.9);
+      padding: 36px 30px;
+      border-radius: 18px;
+      max-width: 520px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      animation: fadeUp 1.2s ease forwards;
+      z-index: 2;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #3b2b2b;
+      margin-bottom: 16px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: #6b484a;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ❤️ HEART RAIN */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+    .buttons{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+    }
+
+    .btn{
+    border:0;
+    cursor:pointer;
+
+    min-height:46px;
+    padding:12px 26px;
+    border-radius:999px;
+
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+    background:white;
+    color:#444;
+
+    box-shadow:0 8px 18px rgba(0,0,0,0.14);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .btn-yes{
+    color:var(--accent);
+    }
+
+    .btn:hover{
+    transform: translateY(-2px) scale(1.04);
+    box-shadow:0 16px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn:active{
+    transform: scale(0.96);
+    }
+  </style>
+</head>
+
+<body class="heart-message-page">
+  <audio id="bgm" src="bgm.mp3" muted></audio>
+  <div class="message-card">
+    <h1>💞 Two Hearts, One Story 💞</h1>
+
+    <p>
+      Some people meet by chance…  
+      but some hearts meet because they were always meant to.
+      <br><br>
+
+      Every yes from you feels like destiny unfolding.
+      <br><br>
+
+      Like two hearts slowly finding the same rhythm…  
+      the same warmth…  
+      the same forever.
+      <br><br>
+
+      Thank you for letting me feel this.
+      <br><br>
+
+      You are not just special…  
+      you feel like home 💖
+    </p>
+
+    <p class="letter-sign">
+      — Always, with love ❤️
+    </p>
+    <button class="btn btn-yes"
+    onclick="window.location.href='sixth.html'">
+    Final surprise… 🎁
+    </button>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

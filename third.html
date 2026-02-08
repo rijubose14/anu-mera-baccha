@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One more...</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="bgm" src="bgm.mp3" muted></audio>
+  <div class="card">
+    <div class="avatar-wrap">
+      <img id="avatarImg3" src="Gif/7.gif" class="avatar avatar-rect" alt="avatar"
+           onerror="this.style.display='none';document.getElementById('svgFallback3').style.display='block'">
+      <div id="svgFallback3" style="display:none">
+        <svg class="avatar avatar-rect" width="313" height="264" viewBox="0 0 313 264" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g3" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset="1" stop-color="#ffecec"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="313" height="264" rx="12" fill="url(#g3)" stroke="#f1c6c9" stroke-width="2"/>
+          <circle cx="78" cy="70" r="10" fill="#222"/>
+          <circle cx="182" cy="70" r="10" fill="#222"/>
+          <circle cx="78" cy="70" r="4" fill="#fff"/>
+          <circle cx="182" cy="70" r="4" fill="#fff"/>
+          <path d="M78 104 C120 120, 140 120, 182 104" stroke="#f48ca3" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <h1>Still here? <span class="emoji">😢</span></h1>
+    <p class="subtitle">
+    I was really hoping you’d stay… 💛
+    </p>
+
+    <button id="yes3" class="btn btn-yes">Alright 💕</button>
+    <button id="no3" class="btn btn-no">Pleaseeee 😶</button>
+
+  </div>
+  <!-- heart layer and confetti canvas -->
+  <div id="heartLayer" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" style="position:fixed;left:0;top:0;pointer-events:none;z-index:9999;display:none"></canvas>
+  <!-- Yes modal -->
+  <div id="yesModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content yes-modal-content">
+
+      <div id="heartPanel" class="heart-panel hidden">
+        <canvas id="heartCanvas" width="300" height="300"></canvas>
+
+        <p class="drawing-text" id="heartText">
+          Two hearts… one feeling 💞
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

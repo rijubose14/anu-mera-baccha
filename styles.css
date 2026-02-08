@@ -1,0 +1,501 @@
+/* ================================
+   ROOT VARIABLES
+================================ */
+:root{
+  --bg1: #f8b4c6;
+  --bg2: #fbc2d9;
+  --bg3: #fde2e4;
+  --card-bg: rgba(255,255,255,0.85);
+  --accent: #f48ca3;
+  --text-dark: #3b2b2b;
+  --text-soft: #6b484a;
+}
+
+/* ================================
+   BASE RESET & LAYOUT
+================================ */
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, Arial, sans-serif;
+
+  /* Animated romantic background */
+  background: linear-gradient(
+    135deg,
+    var(--bg1),
+    var(--bg2),
+    var(--bg3)
+  );
+  background-size:300% 300%;
+  animation: bgShift 14s ease infinite;
+}
+
+/* ================================
+   BACKGROUND ANIMATION
+================================ */
+@keyframes bgShift{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================
+   CARD CONTAINER
+================================ */
+.card{
+  width:420px;
+  max-width:92vw;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.75),
+    rgba(255,255,255,0.95)
+  );
+  border-radius:18px;
+  padding:36px 28px;
+  text-align:center;
+  position:relative;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+
+  animation: cardEnter 0.9s ease-out both;
+}
+
+@keyframes cardEnter{
+  from{
+    opacity:0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   AVATAR
+================================ */
+.avatar-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:-60px;
+  margin-bottom:14px;
+}
+
+.avatar,
+.avatar-rect{
+  border-radius:50%;
+  box-shadow:
+    0 10px 30px rgba(240, 236, 237, 0.35);
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+@keyframes avatarGlow{
+  0%,100%{
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0);
+  }
+  50%{
+    box-shadow: 0 14px 40px rgba(255, 255, 255, 0);
+  }
+}
+
+/* Square / Rect avatars */
+.avatar-rect{
+  border-radius:12px;
+}
+
+/* Fix sizes so SVG and GIF match */
+svg.avatar{
+  width:214px;
+  height:180px;
+}
+
+img.avatar{
+  width:214px;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+svg.avatar.avatar-rect,
+img.avatar.avatar-rect{
+  width:313px;
+  height:264px;
+}
+
+/* ================================
+   TEXT
+================================ */
+h1{
+  margin:10px 0;
+  color:var(--text-dark);
+  font-weight:600;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+}
+
+.subtitle{
+  margin:6px 0 22px;
+  color:var(--text-soft);
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
+}
+
+.emoji{
+  font-size:1.2em;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.buttons{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  cursor:pointer;
+
+  min-height:46px;
+  padding:12px 26px;
+  border-radius:999px;
+
+  font-size: clamp(0.95rem, 4vw, 1.05rem);
+  background:white;
+  color:#444;
+
+  box-shadow:0 8px 18px rgba(0,0,0,0.14);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-yes{
+  color:var(--accent);
+}
+
+.btn:hover{
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:0 16px 30px rgba(0,0,0,0.2);
+}
+
+.btn:active{
+  transform: scale(0.96);
+}
+
+/* ================================
+   HEART ANIMATION
+================================ */
+#heartLayer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:500;
+}
+
+.heart{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:22px;
+  opacity:0;
+
+  animation:
+    rise 2.2s ease-out forwards,
+    heartPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes rise{
+  0%   { opacity:0; transform:translateY(0) scale(0.6); }
+  10%  { opacity:1; }
+  100% { opacity:0; transform:translateY(-260px) scale(1.2); }
+}
+
+@keyframes heartPulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.18); }
+}
+
+/* ================================
+   MODAL
+================================ */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.35);
+  z-index:1000;
+
+  visibility:hidden;
+  opacity:0;
+  transition:opacity .18s ease;
+}
+
+.modal[aria-hidden="false"]{
+  visibility:visible;
+  opacity:1;
+}
+
+.modal-content{
+  background:white;
+  padding:22px 24px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* ================================
+   CONFETTI CANVAS
+================================ */
+#confettiCanvas{
+  width:100%;
+  height:100%;
+}
+
+/* ================================
+   MOBILE TWEAKS
+================================ */
+@media (max-width:480px){
+  .card{
+    padding:28px 18px;
+  }
+}
+
+/* ================================
+   DARK MODE SUPPORT
+================================ */
+@media (prefers-color-scheme: dark){
+  body{
+    background: linear-gradient(135deg, #2b1f2f, #4a2b3f);
+  }
+
+  .card{
+    background: rgba(255,255,255,0.08);
+    color:#fff;
+  }
+
+  .subtitle{
+    color:#f1c6c9;
+  }
+}
+
+
+/* ================================
+   TYPEWRITER TEXT EFFECT
+================================ */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.6);
+  width: 0;
+  animation:
+    typing 3s steps(32, end) forwards,
+    blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Mobile fix: prevent text overflow */
+@media (max-width: 480px) {
+  .typewriter {
+    white-space: normal;
+    border-right: none;
+    animation: fadeInText 1.2s ease forwards;
+    width: auto;
+  }
+
+  @keyframes fadeInText {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+/* Re-trigger typewriter on every page */
+/* .typewriter {
+  animation-fill-mode: both;
+}
+.replay {
+  animation-name: typing, blink;
+} */
+  .final-message {
+  margin-top: 18px;
+  font-size: clamp(1rem, 4vw, 1.15rem);
+  line-height: 1.6;
+  color: #3b2b2b;
+  animation: msgFade 1.2s ease forwards;
+}
+
+@keyframes msgFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ================================
+   LETTER PAGE STYLES
+================================ */
+.letter-card {
+  max-width: 520px;
+  padding: 40px 32px;
+}
+
+.letter-text {
+  margin-top: 20px;
+  font-size: clamp(1rem, 4vw, 1.15rem);
+  line-height: 1.8;
+  color: #3b2b2b;
+  text-align: left;
+}
+
+.letter-sign {
+  margin-top: 28px;
+  font-size: 1rem;
+  text-align: right;
+  color: #6b484a;
+  font-style: italic;
+}
+
+/* ================================
+   YES MODAL – HEART DRAW PANEL
+================================ */
+
+/* Modal inner refinement (safe add) */
+.yes-modal-content {
+  min-width: 300px;
+  max-width: 90vw;
+}
+
+/* Heart panel container */
+.heart-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Canvas soft glow */
+#heartCanvas {
+  background: transparent;
+  filter: drop-shadow(0 0 12px rgba(244, 140, 163, 0.55));
+}
+
+/* Romantic helper text */
+.drawing-text {
+  font-size: 0.95rem;
+  color: #6b484a;
+  opacity: 0.85;
+  animation: softPulse 1.8s ease-in-out infinite;
+}
+
+/* Gentle breathing animation */
+@keyframes softPulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+
+/* ================================
+   INFINITY MODAL DRAWING
+================================ */
+.yes-modal-content {
+  min-width: 320px;
+  max-width: 90vw;
+}
+
+.heart-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+#heartCanvas {
+  background: transparent;
+  filter: drop-shadow(0 0 12px rgba(244, 140, 163, 0.55));
+}
+
+.drawing-text {
+  font-size: 1rem;
+  color: #6b484a;
+  opacity: 0.9;
+  animation: softPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+
+/* ================================
+   TAP TO ENABLE MUSIC POPUP
+================================ */
+#soundPopup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.sound-box {
+  background: white;
+  padding: 28px 22px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: popupFade 1s ease;
+}
+
+.sound-box h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #f48ca3;
+}
+
+.sound-box p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #6b484a;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

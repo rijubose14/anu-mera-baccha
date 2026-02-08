@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>All good ❤️</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="bgm" src="bgm.mp3" muted></audio>
+  <div class="card">
+    <div class="avatar-wrap">
+      <img id="avatarImg5" src="Gif/10.gif" class="avatar avatar-rect" alt="avatar"
+           onerror="this.style.display='none';document.getElementById('svgFallback5').style.display='block'">
+      <div id="svgFallback5" style="display:none">
+        <svg class="avatar avatar-rect" width="160" height="110" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g5" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset="1" stop-color="#ffecec"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="160" height="110" rx="12" fill="url(#g5)" stroke="#f1c6c9" stroke-width="2"/>
+          <circle cx="48" cy="50" r="8" fill="#222"/>
+          <circle cx="112" cy="50" r="8" fill="#222"/>
+          <circle cx="48" cy="50" r="3" fill="#fff"/>
+          <circle cx="112" cy="50" r="3" fill="#fff"/>
+          <path d="M48 74 C72 84, 88 84, 112 74" stroke="#f48ca3" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <h1>I knew it… <span class="emoji">🥰</span></h1>
+    <!-- <p class="subtitle">
+    Thank you for choosing me.  
+    I’ll remember this forever ❤️
+    </p> -->
+    <p class="subtitle">
+    I have something I’ve been wanting to tell you… 💌
+    </p>
+
+    <button id="revealMsg" class="btn btn-yes" onclick="location.href='sixth.html'">
+    One last thing… 💖
+    </button>
+  </div>
+
+  <!-- small celebration on load -->
+  <div id="heartLayer" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" style="position:fixed;left:0;top:0;pointer-events:none;z-index:9999;display:none"></canvas>
+  <script src="script.js"></script>
+  <!-- <script>
+    // play a short celebration on page load
+    document.addEventListener('DOMContentLoaded', function(){
+      if(typeof popHearts === 'function') popHearts(10);
+      if(typeof runConfetti === 'function') runConfetti();
+    });
+  </script> -->
+</body>
+</html>
